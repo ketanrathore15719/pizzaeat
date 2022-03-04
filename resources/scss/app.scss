@@ -1,0 +1,257 @@
+@import './variables';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
+
+body {
+	font-family: 'Lato', sans-sarif;
+	-webkit-font-smoothing:antialiased;
+	color: $dark;
+}
+
+nav li:last-child a {
+	background: $primary;
+	&:hover {
+		background:$primary-hover;
+	}
+}
+
+nav li a {
+	transition: $smoth;
+	&:hover {
+		color:$primary;
+	}
+}
+
+section.hero{
+	background:$secondary;
+}
+
+.size {
+	background:$secondary;
+}
+
+.add-to-cart {
+	border: 2px solid $primary;
+	color: $primary;
+	transition: $smoth;
+	&:hover {
+		background:$primary;
+		border-color: $pure;
+		color: $pure;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.ordernow {
+	&:focus {
+		outline: none;
+	}
+}
+.btn-primary {
+	background:$primary;
+	&:hover { 
+		background:$primary-hover;
+	}
+}
+
+section.cart {
+	background:$secondary;
+	.amount {
+		color: $primary;
+	}
+}
+
+section.login {
+	background:$secondary;
+	min-height: 88vh;
+	a {
+		color: $primary;
+		&:hover { 
+			color:$primary-hover;
+		}
+	}
+}
+
+.grid img {
+	max-height: 100px;
+}
+
+
+.noty_theme__mint.noty_bar {
+  margin: 4px 0;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50px!important;
+  padding-left: 8px!important;
+  background-color: $primary;
+}
+
+a.link {
+	color: $primary;
+}
+
+section.status {
+	background: $secondary;
+	min-height: 88vh;
+}
+.status-box {
+	padding: 60px 0 0;
+}
+
+// dots status
+.status-box ul li span{
+	position: relative;
+	padding-left:20px; 
+}
+.status-box ul li span:after {
+	content: '';
+	position: absolute;
+	left:-10px;
+	top:50%;
+	background:$dark;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	box-shadow: 0 0 1px 10px $secondary;
+}
+
+.status-box ul {
+	margin-left: 84px;
+}
+// icons
+
+.status-box ul li span:before {
+	font-family: "Line Awesome Free";
+	font-weight: 600;
+	font-size:46px;
+	position: absolute;
+	left:-90px;
+	top:50%;
+	transform: translateY(-50%);
+	color: inherit;
+}
+
+.status-box ul li:nth-child(1) span:before {
+	content: '\f46c';
+}
+.status-box ul li:nth-child(2) span:before {
+	content: '\f560';
+}
+.status-box ul li:nth-child(3) span:before {
+	content: '\f818';
+}
+.status-box ul li:nth-child(4) span:before {
+	content: '\f0d1';
+}
+.status-box ul li:nth-child(5) span:before {
+	content: '\f582';
+}
+
+.status-box ul li {
+	position: relative;
+}
+//lineset
+.status-box ul li:before {
+	content: '';
+	position: absolute;
+	top:0;
+	left:-6px;
+	width: 2px;
+	height: 100%;
+	background:$dark;
+	margin-top: 10px;
+}
+
+
+.status-box ul li:nth-child(5) span:after {
+	box-shadow: 0 20px 1px 20px $secondary;
+}
+
+//linegray
+.status-box ul li.step-completed:before {
+	background:$gray;
+}
+
+//dotsgray
+.status-box ul li.step-completed span:after {
+	background:$gray;
+}
+
+//textgray
+.status-box ul li.step-completed span{
+	color:$gray;
+}
+
+//current status
+
+.status-box ul li.current span{
+	color:$primary;
+}
+
+.status-box ul li.current span:after {
+	background:$primary;
+}
+
+.status-box ul li small {
+	float: right;
+	font-size:14px;
+	margin-top: 4px; 
+}
+
+@media(max-width: 1060px) {
+	table {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+}
+
+@media(max-width: 768px) {
+	.status-box ul li span:before {
+		font-size: 34px;
+	}
+}
+
+hr.hrone {
+ border: 1px solid $primary;
+ border-radius: 5px;
+}
+hr.hrdot {
+	border:0.1px dotted;
+	order-radius: 5px;
+}
+
+.paid {
+	color: $primary;
+}
+////////////////////////////////////////////////////////////////////////////
+
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }

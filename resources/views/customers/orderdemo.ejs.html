@@ -1,0 +1,44 @@
+<section class="orders light-section mx-auto py-8 px-3">
+	<div class="container mx-auto pt-12">
+		<h1 class="font-bold text-lg mb-8">All Orders</h1>
+<!-- 		<div id="success-alert" class="flex item-center bg-green-500 text-white text=sm font-bold px-4 py-3" role="alert">
+		<p>Order Placed</p>
+		</div> -->
+		<% if(messages.success) { %>
+		<div id="noty_layout__topRight" role="alert" aria-live="polite" class="noty_layout">
+			<div id="noty_bar_90dc6f47-0c22-4ae8-bf90-0c7f539edda5" class="noty_bar noty_type__success noty_theme__mint noty_close_with_click noty_has_timeout">
+				<div class="noty_body"><%=messages.success%></div>
+				<div class="noty_progressbar"></div>
+			</div>
+		</div>
+		<% } %>
+		<table class="w-full table-auto bg-white">
+			<thead>
+				<tr>
+					<th class="px-4 py-2 text-left">Orders</th>
+					<th class="px-4 py-2 text-left">Address</th>
+					<th class="px-4 py-2 text-left">Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if(orders.length) {%>
+				<% orders.forEach((order) => { %>
+				<tr>
+					<td class="border px-4 py-2">
+						<a class="link" href="/customer/orders/<%=order._id%>"><%=order.orderId%></a>
+					</td>
+					<td class="border px-4 py-2"><%=order.address%></td>
+					<td class="border px-4 py-2"><%=moment(order.createdAt).format('hh:mm A')%></td>
+				</tr>
+				<% }) %>
+				<% } else { %>
+				<tr>
+					<td class="p-4">
+						<span>No Orders!!</span>
+					</td>
+				</tr>
+				<% }%>
+			</tbody>
+		</table>
+	</div>	
+</section>

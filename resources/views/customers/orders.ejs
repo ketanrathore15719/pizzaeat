@@ -1,0 +1,40 @@
+
+<section class="orders light-section mx-auto py-8 px-3">
+	<% if(messages.success) { %>
+		<div id="noty_layout__topRight" role="alert" aria-live="polite" class="noty_layout">
+			<div id="noty_bar_90dc6f47-0c22-4ae8-bf90-0c7f539edda5" class="noty_bar noty_type__success noty_theme__mint noty_close_with_click noty_has_timeout">
+				<div class="noty_body"><%=messages.success%></div>
+				<div class="noty_progressbar"></div>
+			</div>
+		</div>
+		<% } %>
+	<div class="container mx-auto pt-12 order xl:w-1/2">
+		<h1 class="font-bold text-lg mb-8">All Orders</h1>
+		<% if(orders.length) {%>
+		<% orders.forEach((order) => { %>
+		<hr class="hrone">
+		<h6 class="float-right bg-white py-1 rounded-full px-2 text-green-600 text-xs pt-2"><span class="font-bold">ORDER DATE : <%=moment(order.createdAt).format('DD-MM-YYYY hh:mm A')%></span></h6><br>
+		<div class="items-center my-2">
+			<% for(let pizza of Object.values(order.items)) { %>
+				<span class="px-2 uppercase pt-2"><%=pizza.item.size%></span>
+				<span class="px-1"><%=pizza.item.name%></span>
+				<span class="px-1 pt-2">x <%=pizza.qty%></span><br>
+			<% } %>
+		</div>
+		<div class="text-right mb-2">
+			<span class="font-bold paid">Total Paid : ₹. <%=order.totalPrice%></span>
+		</div>
+		<hr class="hrdot"><br>
+		<div class="flex items-center justify-between mb-12">
+			<a href="/customer/orders/<%=order._id%>" class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+				<span>Track Order</span>
+			</a>
+			
+			<h6 class=" float-right bg-white py-1 rounded-full px-2 text-green-600 text-xs"> <span class="font-bold">ORDER ID :</span><%=order.orderId%></h6>
+		</div>
+		<% }) %>
+		<% } else { %>
+		<span>No Orders!!</span>
+		<% }%>
+	</div>
+</section>
